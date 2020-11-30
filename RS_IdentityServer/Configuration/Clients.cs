@@ -11,12 +11,23 @@ namespace RS_IdentityServer.Configuration
             return new List<Client> { 
                 new Client
                 {
-                    ClientId = "RentalServiceAPI",
-                    ClientName = "Rental Service API",
-                    ClientSecrets = new List<Secret>{ new Secret("EC14A81A-E59E-4455-A452-8471CB701602".Sha256()) } ,
+                    ClientId = "RentalService",
+                    ClientName = "Rental Service",
+                    ClientSecrets = new List<Secret>
+                    { 
+                        new Secret("EC14A81A-E59E-4455-A452-8471CB701602".Sha256())
+                    } ,
                     AllowedGrantTypes = GrantTypes.Code,
-                    AllowedScopes = new List<string>{
-                        IdentityServerConstants.StandardScopes.OpenId
+                    RedirectUris = new List<string>
+                    {
+                        "https://localhost:5071/signin-oidc"
+                    },
+                    AllowedScopes = new List<string>
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "role",
+                        "rentalserviceapiscope"
                     },
                     RequirePkce = true,
                 }
