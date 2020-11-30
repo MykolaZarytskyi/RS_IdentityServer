@@ -1,3 +1,3 @@
 # RS_IdentityServer
 
-To add a certificate ZarytskyiCert.pfx use password: "Zarytskyi Signing Cert".
+To add the certificate ZarytskyiCert.pfx use password: "Zarytskyi Signing Cert".
