@@ -17,19 +17,24 @@ namespace RS_IdentityServer.Configuration
                     { 
                         new Secret("EC14A81A-E59E-4455-A452-8471CB701602".Sha256())
                     } ,
-                    AllowedGrantTypes = GrantTypes.Code,
+                    AllowedGrantTypes = GrantTypes.CodeAndClientCredentials,
                     RedirectUris = new List<string>
                     {
-                        "https://localhost:5071/signin-oidc"
+                        "https://localhost:5071/signin-oidc",
+                    },
+                    PostLogoutRedirectUris = new List<string> 
+                    {
+                        "https://localhost:5071/signout-callback-oidc"
                     },
                     AllowedScopes = new List<string>
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
                         "role",
-                        "rentalserviceapiscope"
+                        "RentalServiceApiScope"
                     },
                     RequirePkce = true,
+                    
                 }
             };
         }
